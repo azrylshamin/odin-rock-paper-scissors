@@ -6,9 +6,6 @@ const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
-console.log(humanSelection);
-console.log(computerSelection);
-
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3)
 
