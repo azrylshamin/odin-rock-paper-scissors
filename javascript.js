@@ -1,7 +1,7 @@
+playGame();
+
 let humanScore = 0;
 let computerScore = 0;
-
-playGame();
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -29,6 +29,7 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     let roundMessage;
     const messageDiv = document.querySelector("#result");
+    const scoreDiv = document.querySelector("#score");
 
     if (humanChoice === "rock") {
         switch (computerChoice) {
@@ -77,8 +78,10 @@ function playRound(humanChoice, computerChoice) {
                 break;
         }
     }
-
+    
     messageDiv.textContent = roundMessage;
+    scoreDiv.textContent = `Player: ${humanScore}, Computer: ${computerScore}`
+    
 }
 
 function playGame() {
@@ -99,4 +102,6 @@ function playGame() {
 
     getHumanChoice();
 }
+
+
 
