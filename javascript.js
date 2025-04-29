@@ -4,7 +4,7 @@ let computerScore = 0;
 playGame();
 
 function getComputerChoice() {
-    let randomNumber = Math.floor(Math.random() * 3)
+    let randomNumber = Math.floor(Math.random() * 3);
 
     switch (randomNumber) {
         case 0:
@@ -12,7 +12,7 @@ function getComputerChoice() {
         case 1:
             return "paper";
         case 2:
-            return "scissors"
+            return "scissors";
     }
 }
 
