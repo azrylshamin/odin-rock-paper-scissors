@@ -82,13 +82,13 @@ function playGame() {
 
         playRound(humanSelection, computerSelection);
 
-        console.log(`Player: ${humanScore}, Computer: ${computerScore}`)
+        console.log(`Player: ${humanScore}, Computer: ${computerScore}`);
     }
 
     if (humanScore > computerScore) {
         console.log("You win the game!");
     } else {
-        console.log("You lose to the computer! Try again later")
+        console.log("You lose to the computer! Try again later");
     }
 }
 
