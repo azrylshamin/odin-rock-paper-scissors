@@ -1,7 +1,7 @@
-playGame();
-
 let humanScore = 0;
 let computerScore = 0;
+
+playGame();
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -28,8 +28,12 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     let roundMessage;
+    
     const messageDiv = document.querySelector("#result");
     const scoreDiv = document.querySelector("#score");
+    const winnerDiv = document.querySelector("#winner");
+
+    winnerDiv.textContent = "";
 
     if (humanChoice === "rock") {
         switch (computerChoice) {
@@ -79,28 +83,26 @@ function playRound(humanChoice, computerChoice) {
         }
     }
     
-    messageDiv.textContent = roundMessage;
-    scoreDiv.textContent = `Player: ${humanScore}, Computer: ${computerScore}`
+        messageDiv.textContent = roundMessage;
+        scoreDiv.textContent = `Player: ${humanScore}, Computer: ${computerScore}`
     
+    if (humanScore == 5 || computerScore == 5) {
+        announceWinner(humanScore, computerScore, winnerDiv);
+        computerScore = 0;
+        humanScore = 0;
+    }
 }
 
 function playGame() {
-    // while ((humanScore + computerScore) < 5){
-    //     const humanSelection = getHumanChoice();
-    //     const computerSelection = getComputerChoice();
-
-    //     playRound(humanSelection, computerSelection);
-
-    //     console.log(`Player: ${humanScore}, Computer: ${computerScore}`);
-    // }
-
-    // if (humanScore > computerScore) {
-    //     console.log("You win the game!");
-    // } else {
-    //     console.log("You lose to the computer! Try again later");
-    // }
-
     getHumanChoice();
+}
+
+function announceWinner(humanScore, computerScore, winnerDiv) {
+    if (humanScore > computerScore) {
+        winnerDiv.textContent = "You win the game!";
+    } else {
+        winnerDiv.textContent = "You lose to the computer! Try again later"
+    }
 }
 
 
