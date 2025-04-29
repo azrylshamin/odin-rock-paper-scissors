@@ -17,8 +17,13 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let input = prompt("Enter your choice: ").toLowerCase();
-    return input;
+    const rockBtn = document.querySelector("#rock");
+    const paperBtn = document.querySelector("#paper");
+    const scissorsBtn = document.querySelector("#scissors");
+
+    rockBtn.addEventListener("click", () => playRound("rock", getComputerChoice()));
+    paperBtn.addEventListener("click", () => playRound("paper", getComputerChoice()));
+    scissorsBtn.addEventListener("click", () => playRound("scissors", getComputerChoice()));
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -76,19 +81,21 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame() {
-    while ((humanScore + computerScore) < 5){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+    // while ((humanScore + computerScore) < 5){
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
+    //     playRound(humanSelection, computerSelection);
 
-        console.log(`Player: ${humanScore}, Computer: ${computerScore}`);
-    }
+    //     console.log(`Player: ${humanScore}, Computer: ${computerScore}`);
+    // }
 
-    if (humanScore > computerScore) {
-        console.log("You win the game!");
-    } else {
-        console.log("You lose to the computer! Try again later");
-    }
+    // if (humanScore > computerScore) {
+    //     console.log("You win the game!");
+    // } else {
+    //     console.log("You lose to the computer! Try again later");
+    // }
+
+    getHumanChoice();
 }
 
