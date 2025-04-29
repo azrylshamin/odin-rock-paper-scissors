@@ -28,6 +28,7 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     let roundMessage;
+    const messageDiv = document.querySelector("#result");
 
     if (humanChoice === "rock") {
         switch (computerChoice) {
@@ -77,7 +78,7 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 
-    console.log(roundMessage);
+    messageDiv.textContent = roundMessage;
 }
 
 function playGame() {
